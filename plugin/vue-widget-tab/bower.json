@@ -1,0 +1,28 @@
+{
+  "name": "vue-widget-tab",
+  "description": "Widget tab based on vue.",
+  "main": "dist/vue-widget-tab.js",
+  "authors": [
+    "afei"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "tab",
+    "widget",
+    "next"
+  ],
+  "homepage": "https://github.com/afeiship/vue-widget-tab",
+  "moduleType": [
+    "amd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vue": "^1.0.17"
+  }
+}

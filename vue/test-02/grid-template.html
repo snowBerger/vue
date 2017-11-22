@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>myGrid</title>
+    <style type="text/css">
+    body {
+        font-family: Helvetica Neue, Arial, sans-serif;
+        font-size: 14px;
+        color: #444;
+    }
+    
+    table {
+        border: 2px solid #42b983;
+        border-radius: 3px;
+        background-color: #fff;
+    }
+    
+    th {
+        background-color: #42b983;
+        color: rgba(255, 255, 255, 0.66);
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -user-select: none;
+    }
+    
+    th.active {
+        color: #fff;
+    }
+    
+    th.active .arrow {
+        opacity: 1;
+    }
+    
+    td {
+        background-color: #f9f9f9;
+        text-align: left;
+    }
+    
+    th,
+    td {
+        min-width: 80px;
+        padding: 10px 20px;
+    }
+    
+    .arrow {
+        display: inline-block;
+        vertical-align: middle;
+        width: 0;
+        height: 0;
+        margin-left: 5px;
+        opacity: 0.66;
+    }
+    
+    .arrow.asc {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 4px solid #fff;
+    }
+    
+    .arrow.desc {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid #fff;
+    }
+    
+    #search {
+        margin-bottom: 10px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="demo">
+        <div id="search">
+            Search
+            <input v-model="searchQuery"></input>
+        </div>
+        <my-grid :columns="gridColumns" :data="gridData" :filter-key="searchQuery"></my-grid>
+    </div>
+    <template id="grid-template">
+        <table>
+            <thead>
+                <tr>
+                    <th v-for="key in columns" @click="sort(key)" :class="{active : key == sortKey}">
+                        {{key | capitalize}}
+                        <span class="arrow" :class="order[key] > 0 ? 'asc' : 'desc'"></span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="row in data | filterBy filterKey | orderBy sortKey order[sortKey]">
+                    <td v-for="key in columns">
+                        {{row[key]}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+    <script type="text/javascript">
+    window.onload = function() {
+        Vue.component('my-grid', {
+            template: '#grid-template',
+            props: {
+                columns: Array,
+                data: Array,
+                filterKey: String
+            },
+            data: function() {
+                var order = {};
+                this.columns.forEach(function(key) {
+                    order[key] = 1;
+                });
+                return {
+                    sortKey: '',
+                    order: order
+                }
+            },
+            methods: {
+                sort: function(key) {
+                    this.sortKey = key;
+                    this.order[key] *= -1;
+                }
+            }
+        });
+
+        var demo = new Vue({
+            el: '#demo',
+            data: {
+                searchQuery: '',
+                gridColumns: ['name', 'year', 'sex', 'depart', 'tel'],
+                gridData: [{
+                    name: 'Xiao Ming',
+                    year: '23',
+                    sex: '男',
+                    depart: 'PDW',
+                    tel: '123111'
+                }, {
+                    name: 'Li Li',
+                    year: '18',
+                    sex: '女',
+                    depart: 'QQ',
+                    tel: '92212'
+                }, {
+                    name: 'Xiao Zhang',
+                    year: '21',
+                    sex: '男',
+                    depart: '360',
+                    tel: '661333'
+                }, {
+                    name: 'Wang Xiaoer',
+                    year: '29',
+                    sex: '男',
+                    depart: 'PDW',
+                    tel: '875344'
+                }, {
+                    name: 'Peny',
+                    year: '22',
+                    sex: '女',
+                    depart: 'Ali',
+                    tel: '53414'
+                }]
+            }
+        });
+    }
+    </script>
+    <script type="text/javascript" src="vue.js"></script>
+</body>
+
+</html>

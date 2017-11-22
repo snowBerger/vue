@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo-vue</title>
+</head>
+
+<body>
+    <div id="demo">
+        <p>{{msg}}</p>
+        <input v-model="msg"></input>
+    </div>
+    <script type="text/javascript">
+    window.onload = function() {
+        var data = {msg: "Hello Vue.js!"};
+        var demo = new Vue({
+            el: '#demo',
+            data: data
+        })
+    }
+    </script>
+    <script type="text/javascript" src="vue.js"></script>
+</body>
+
+</html>

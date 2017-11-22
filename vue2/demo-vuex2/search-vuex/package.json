@@ -1,0 +1,40 @@
+{
+  "name": "search-vuex",
+  "version": "1.0.0",
+  "description": "a search demo of VueJs and Vuex",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snowBerger/search-vuex.git"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot",
+    "build": "webpack -p",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vuejs",
+    "vuex",
+    "search"
+  ],
+  "author": "snowBerger",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.0.1",
+    "vuex": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-runtime": "^5.8.38",
+    "css-loader": "^0.25.0",
+    "vue-hot-reload-api": "^2.0.6",
+    "vue-html-loader": "^1.2.3",
+    "vue-loader": "^9.5.3",
+    "vue-style-loader": "^1.0.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  }
+}

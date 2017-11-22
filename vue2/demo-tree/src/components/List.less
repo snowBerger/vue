@@ -1,0 +1,65 @@
+@font-size: 14px;
+@font-color: #333;
+@iconfont-size: 18px;
+@iconfont-color: #999;
+
+.list {
+  .title {
+    position: absolute;
+    top: 0;
+    padding-left: 40px;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  & > ul {
+    height: 96%;
+    overflow: auto;
+    margin-top: 30px;
+    padding-right: 20px;
+    .item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0;
+      cursor: pointer;
+      .item-l {
+        max-width: 90%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        & > img,
+        .img-default {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+        }
+        .img-default {
+          background: #1971C1;
+          font-size: 12px;
+          color: #fff;
+          line-height: 24px;
+          text-align: center;
+        }
+        & > span:last-child {
+          max-width: 85%;
+          margin-left: 15px;
+          overflow: hidden;
+          text-overflow:ellipsis;
+          white-space: nowrap;
+          color: @font-color;
+          font-size: @font-size;
+        }
+      }
+      & > .iconfont {
+        font-size: @iconfont-size;
+        line-height: @iconfont-size;
+        color: @iconfont-color;
+      }
+      & > .iconfont:hover {
+        background: rgba(0, 0, 0, .2);
+        border-radius: 50%;
+      }
+    }
+  }
+}

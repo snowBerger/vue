@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+</head>
+
+<body>
+    <div id="demo">
+        <p></p>
+        <input type="text" placeholder="Hello Vue.js!"></input>
+    </div>
+    <script type="text/javascript">
+    window.onload = function() {
+        var p = document.getElementsByTagName('p')[0];
+        var input = document.getElementsByTagName('input')[0];
+        //Vue在IE8及以下不能很好运行，所以暂且不考虑兼容性
+        input.addEventListener("keyup", function() {
+            p.innerHTML = this.value;
+        })
+    }
+    </script>
+</body>
+
+</html>

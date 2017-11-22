@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../bower_components/vue/dist/vue.min.js"></script>
+  <script type="text/javascript" src="../src/vue-widget-tab.js"></script>
+  <link rel="stylesheet" type="text/css" href="../dist/vue-widget-tab.css"/>
+</head>
+<body>
+
+<vue-widget-tab :active-index="activeIndex" :items="items">
+
+</vue-widget-tab>
+
+<script type="text/javascript">
+  var vm = new Vue({
+    el: 'body',
+    data: {
+      activeIndex: 0,
+      items: [{
+        text: '全部',
+        type: '0'
+      }, {
+        text: '收入',
+        type: '1'
+      }, {
+        text: '支出',
+        type: '-1'
+      }]
+    }
+  });
+</script>
+</body>
+</html>
